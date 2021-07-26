@@ -3,15 +3,18 @@ from random import randint
 
 
 # Linear Search
-def linear_search(value, collection):
-    for item in collection:
-        if item == value:
+def linear_search(target, array):
+    for value in array:
+        if value == target:
             return True
     return False
 
 
 # Main Program
-collection = list(range(1, randint(0, 32)))
-value = randint(0, 32)
-result = linear_search(value, collection)
-print("%s, %s is in %s - Linear Search" % (result, value, collection))
+array = list(range(1, randint(0, 32)))
+
+# Search for Multiple TargetsP
+for target in range(0, 3):
+    target = randint(0, 32)
+    print("Array: %s\nTarget: %s" % (array, target))
+    print("Linear Search Target Found: %s\n" % linear_search(target, array))

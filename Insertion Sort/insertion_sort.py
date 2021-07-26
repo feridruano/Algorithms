@@ -3,29 +3,37 @@ from random import randint
 
 
 # Insertion Sort - Sorted On The Left Side Of the Array
-def insertion_sort(collection):
-    for index in range(1, len(collection)):
+def insertion_sort(array):
+    for index in range(1, len(array)):
         for position in reversed(range(1, index + 1)):
-            if(collection[position - 1] > collection[position]):
-              collection[position], collection[position - 1] = collection[position - 1], collection[position]
+            if(array[position - 1] > array[position]):
+              array[position], array[position - 1] = array[position - 1], array[position]
             else:
                 continue
+    return array
 
 
 # Insertion Sort - Sorted On the Right Side Of the Array
-def right_insertion_sort(collection):
-    for index in reversed(range(0, len(collection) - 1)):
-        for position in range(index, len(collection) - 1):
-            if collection[position + 1] < collection[position]:
-                collection[position], collection[position + 1] = collection[position + 1], collection[position]
+def reversed_insertion_sort(array):
+    for index in reversed(range(0, len(array) - 1)):
+        for position in range(index, len(array) - 1):
+            if array[position + 1] < array[position]:
+                array[position], array[position + 1] = array[position + 1], array[position]
             else:
                 continue
+    return array
 
 
 # Main Program
-collection = [93, 34, 25, 12, 22, 11, 90, 5]
-insertion_sort(collection)
-print("%s - Insertion Sort" % (collection))
-collection = [84, 45, 32, 12, 26, 11, 72, 5]
-right_insertion_sort(collection)
-print("%s - Reversed Selection Sort" % (collection))
+array = []
+for index in range(1, randint(0, 7)):
+    array.append(randint(0, 32))
+
+print("Unsorted Array: %s" % array)
+print("Selection Sort: %s\n" % insertion_sort(array))
+
+for index in range(1, randint(0, 7)):
+    array.append(randint(0, 32))
+
+print("Unsorted Array: %s" % array)
+print("Reversed Selection Sort: %s\n" % reversed_insertion_sort(array))

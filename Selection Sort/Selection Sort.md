@@ -1,27 +1,41 @@
 # Selection Sort
 
-Imagine splitting an array into two partitions, a sorted and an unsorted partition. Search through the unsorted partition to find the smallest value. Insert the value at the end of the sorted partition which starts on the left side. Repeat until all values are sorted in ascending order.
-
-
+A brute-force sorting algorithm for an array that will have two partitions, an unsorted and sorted partition. Each pass-through finds the smallest value in the unsorted partition and inserts the value at the end of the sorted partition. At the end of each pass-through, the unsorted partition will decrease in size by one and the sorted partition will increase in size by one. 
 
 ## Pseudocode
 
-- Loop through the array, left to right. 
+- [x] Given an array.
+- [x] Loop through each value of the array.
+  - [x] Store the lowest value's index, initially the first value of the unsorted partition.
+  - [x] Loop through the unsorted partition.
+    - [x] When the value at the index of the unsorted partition is lower than the stored lowest value, change the stored lowest value's index.
+  - [x] Swap the first value of the unsorted partition with that of the stored lowest value.
 
-- Store the smallest value's index which is equivalent to`ith` loop's value, initially.
-  - Loop through the unsorted partition to potentially find a smaller value and its index.
+## Code Implementation
 
-- Swap the value at the start of the unsorted partition with that of the smallest value found.
+```python
+def selection_sort(array):
+    for index in range(0, len(array) - 1):
+        lowest_value_index = index
+        for position in range(index + 1, len(array)):
+            if(array[lowest_value_index] > array[position]):
+                lowest_value_index = position
+        array[index], array[lowest_value_index] = array[lowest_value_index], array[index]
+```
 
-- Repeat until all values are sorted in ascending order.
+## Time Complexity
 
+Time complexity is `O(N^2)`, linear time. Each time the data is doubled, the number of steps increase dramatically.  
 
+#### Worst-Case:
 
-## Pitfalls
+The values to be sorted are already sorted, but in reverse order.
 
-- People don't understand how the index of the outer loop and the inner loop work together to create the sorted and unsorted partitions in a single array.
-  - The best method of understanding this concept is to run through the algorithm on a piece of paper. The focus should placed on how the sorted and unsorted partitions increase and decrease in size, respectively, each loop.
-- People confuse Selection Sort for Insertion Sort.
-  - Selection Sort chooses the next smallest value to add at the end of the sorted partition.
-  - Insertion Sort finds the index within the sorted partition for any value.
+#### Best-Case:
+
+The values to be sorted are already sorted.
+
+## Space Complexity
+
+Space complexity is `O(1)`, constant space.
 

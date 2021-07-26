@@ -3,29 +3,36 @@ from random import randint
 
 
 # Selection Sort - Smallest Values Sorted First
-def selection_sort(collection):
-    for index in range(0, len(collection) - 1):
+def selection_sort(array):
+    for index in range(0, len(array) - 1):
         lowest_value_index = index
-        for position in range(index + 1, len(collection)):
-            if(collection[lowest_value_index] > collection[position]):
+        for position in range(index + 1, len(array)):
+            if(array[lowest_value_index] > array[position]):
                 lowest_value_index = position
-        collection[index], collection[lowest_value_index] = collection[lowest_value_index], collection[index]
-
+        array[index], array[lowest_value_index] = array[lowest_value_index], array[index]
+    return array
 
 # Reversed Selection Sort - Largest Values Sorted First
-def reversed_selection_sort(collection):
-    for index in reversed(range(1, len(collection))):
+def reversed_selection_sort(array):
+    for index in reversed(range(1, len(array))):
         highest_value_index = index
         for position in reversed(range(0, index - 1)):
-            if(collection[highest_value_index] < collection[position]):
+            if(array[highest_value_index] < array[position]):
                 highest_value_index = position
-        collection[index], collection[highest_value_index] = collection[highest_value_index], collection[index]
+        array[index], array[highest_value_index] = array[highest_value_index], array[index]
+    return array
 
 
 # Main Program
-collection = [64, 34, 25, 12, 22, 11, 90]
-selection_sort(collection)
-print("%s - Selection Sort" % (collection))
-collection = [72, 5, 32, 12, 26, 11, 83]
-reversed_selection_sort(collection)
-print("%s - Reversed Selection Sort" % (collection))
+array = []
+for index in range(1, randint(0, 7)):
+    array.append(randint(0, 32))
+
+print("Unsorted Array: %s" % array)
+print("Selection Sort: %s\n" % selection_sort(array))
+
+for index in range(1, randint(0, 7)):
+    array.append(randint(0, 32))
+
+print("Unsorted Array: %s" % array)
+print("Reversed Selection Sort: %s\n" % reversed_selection_sort(array))

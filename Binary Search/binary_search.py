@@ -2,43 +2,47 @@
 from random import randint
 
 
-# Recursive Implementation
-def recursive_binary_search(value, collection, low, high):
-    if low > high:
-        return False
-
-    mid = low + (high - low) // 2
-    if collection[mid] == value:
-        return True
-    elif collection[mid] < value:
-        return recursive_binary_search(value, collection, mid + 1, high)
-    else:
-        return recursive_binary_search(value, collection, low, mid - 1)
-
-
-# Iterative Implementation
-def iterative_binary_search(value, collection):
+# Iterative Binary Search
+def iterative_binary_search(target, array):
     low = 0
-    high = len(collection) - 1
+    high = len(array) - 1
 
     while low <= high:
-        mid = low + (high - low) // 2
-        if collection[mid] == value:
+        mid = low + (high - low) // 2  # Prevent Integer Overflow
+        if array[mid] == target:
             return True
-        elif collection[mid] < value:
+        elif array[mid] < target:
             low = mid + 1
         else:
             high = mid - 1
-    return False        
+    return False
+
+
+# Recursive Binary Search
+def recursive_binary_search(target, array, low, high):
+    # Base Case
+    if low > high:
+        return False
+
+    # Recursive Subproblem
+    mid = low + (high - low) // 2  # Prevent Integer Overflow
+    if array[mid] == target:
+        return True
+    elif array[mid] < target:
+        return recursive_binary_search(target, array, mid + 1, high)
+    else:
+        return recursive_binary_search(target, array, low, mid - 1)
 
 
 # Main Program
-collection = list(range(1, randint(0, 32)))
-value = randint(0, 32)
-recursive_result = recursive_binary_search(value, collection, 0,
-                                           len(collection) - 1)
-iterative_result = iterative_binary_search(value, collection)
-print("%s, %s is in %s - Recursive Solution" %
-      (recursive_result, value, collection))
-print("%s, %s is in %s - Iterative Solution" %
-      (iterative_result, value, collection))
+array = list(range(1, randint(0, 32)))
+
+# Search for Multiple Targets
+for target in range(0, 3):
+    target = randint(0, 32)
+    print("Array: %s\nTarget: %s" % (array, target))
+    print("Iterative Binary Search Found: %s" %
+          iterative_binary_search(target, array))
+    print("Recursive Binary Search Found: %s\n" %
+          recursive_binary_search(target, array, 0,
+                                  len(array) - 1))
