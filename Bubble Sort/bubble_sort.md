@@ -20,7 +20,6 @@ def bubble_sort(array):
             if array[unsorted_index] > array[unsorted_index + 1]:
                 array[unsorted_index], array[unsorted_index + 1] = array[
                     unsorted_index + 1], array[unsorted_index]
-    return array
 ```
 
 ## Time Complexity

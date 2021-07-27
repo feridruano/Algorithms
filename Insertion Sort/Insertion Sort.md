@@ -1,6 +1,6 @@
 # Insertion Sort
 
-A brute-force sorting algorithm for an array that will have two partitions, an unsorted and sorted partition. The first value of the unsorted partition is positioned inside the sorted partition by shifting sorted values and inserted in the correct slot, each pass-through. At the end of each pass-through, the unsorted partition will decrease in size by one and the sorted partition will increase in size by one. 
+A brute-force sorting algorithm for an array that will have two partitions, an unsorted and sorted partition. The first value of the unsorted partition is positioned inside the sorted partition by shifting sorted values and inserted the first value in the correct slot, each pass-through. At the end of each pass-through, the unsorted partition will decrease in size by one and the sorted partition will increase in size by one. 
 
 ## Pseudocode
 
