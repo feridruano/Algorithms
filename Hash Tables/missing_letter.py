@@ -12,5 +12,6 @@ def missing_string(string):
     
     return None
 
+
 # Main Program
 print("%s - Missing Letter" % missing_string("the quick brown box jumps over a lazy dog"))

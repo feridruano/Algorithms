@@ -11,6 +11,7 @@ def reverse_string(string):
 
     return string
 
+
 # Main Program
 array = ["Potato", "Tomato", "Racecar", "Train"]
 for value in array:
