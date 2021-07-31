@@ -35,7 +35,7 @@ def recursive_binary_search(target, array, low, high):
 
 
 # Main Program
-array = list(range(1, randint(0, 32)))
+array = list(range(1, randint(2, 32)))
 
 # Search for Multiple Targets
 for target in range(0, 3):
