@@ -60,7 +60,7 @@ A **divide and conquer** selection algorithm that recursively partitions an arra
     - [x] When the value of the element at the left pointer is less than the value of the pivot, increment the left pointer. Otherwise, stop the loop.
   - [x] Loop through the array backwards from the right pointer.
     - [x] When the value of the element at the right pointer is greater than the value of the pivot, increment the right pointer. Otherwise, stop the loop.
-  - [x] When the left pointer is at the same position or passed the right pointer, stop out of the infinite loop. Otherwise, swap the values of the left and right pointers and continue onto the next loop.
+  - [x] When the left pointer is at the same position or passed the right pointer, stop out of the infinite loop. Otherwise, swap the values of the left and right pointers, increase the left pointer by one, and continue onto the next loop.
 - [x] Swap the value at the left pointer with that of the pivot. All values less than the pivot will be to the left and all values greater than the pivot will be to the right.
 - [x] Return the index of the left pointer where the pivot is now at.
 

@@ -16,6 +16,7 @@ def partition(array, left_pointer, right_pointer):
         else:
             array[left_pointer], array[right_pointer] = array[
                 right_pointer], array[left_pointer]
+            left_pointer += 1
 
     array[left_pointer], array[pivot_index] = array[pivot_index], array[
         left_pointer]
